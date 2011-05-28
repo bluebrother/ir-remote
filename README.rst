@@ -69,7 +69,6 @@ Features
 Todo
 ----
 - make the remote commands programmable
-- fix the bug that prevents the player to power up with the remote attached.
 
 Q&A
 ---
