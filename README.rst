@@ -66,6 +66,16 @@ Features
 - RC5 remote codes used which has been widely used in the past. It should be
   easy to find a universal remote that can send RC5.
 
+Fuses
+-----
+- the current implementation is based on a 8MHz clock using the internal RC
+  oscillator. The default programming of the controller is set to 1MHz so this
+  needs to get changed.  To prevent unwanted behaviour when the player is off
+  (it still outputs some voltage on the 3.3V line) brown out detection is
+  enabled.
+- set the fuses using avrdude:
+  ``avrdude -p t2313 -c dragon_isp -P usb: -U lfuse:w:0xe4:m -U hfuse:w:0xdb:m -U efuse:w:0xff:m``
+
 Todo
 ----
 - make the remote commands programmable
