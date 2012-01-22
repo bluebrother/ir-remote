@@ -31,8 +31,13 @@ events.
   therefore not discussed. It has a separate line that also seems to control
   the type of the remote. The emulated *H300 non-LCD remote* has this line open
   so there is no need to handle it.
+  The *Hold Button* line is also used to determine the type of the remote. For
+  the *H300 non-LCD remote* this line is floating. The *H100 LCD remote* needs
+  a voltage divider of 2k9 to 2k1 to provide the correct value (1.392V).
+
 - *Play Button*. The Play button has a dedicated line that will get pulled down
   to GND via a 560R resistor when the button is pressed.
+
 - *All other buttons*. All other buttons are connected via a resistor network
   and pull an ADC line down to ``GND`` via different resistor values. The ADC
   line is pulled to ``Vcc`` internally in the player, making a voltage divider
@@ -91,8 +96,8 @@ Why use the *H300 non-LCD remote*?
   buttons (since you can't read the main LCD from a great distance anyway, and
   the remote doesn't have a feedback channel for passing the remote LCD
   contents around), and (2) because I didn't figure how to tell the player a
-  LCD remote is attached. I though I know how to do this but Rockbox_ didn't
-  recognize it. Given (1) I decided not to spend too much time on that.
+  LCD remote is attached back then. I though I know how to do this but Rockbox_
+  didn't recognize it. Given (1) I decided not to spend too much time on that.
 
 Why keep the serial port pins unused?
   With the serial port being still available it's possible to extend the
